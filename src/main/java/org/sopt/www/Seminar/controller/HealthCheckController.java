@@ -55,6 +55,8 @@ public class HealthCheckController {
     @GetMapping("/v6")
     public HealthCheckResponseDto healthCheckV6() {
 
-        return HealthCheckResponseDto.success(200, "OK");
+        return HealthCheckResponseDto.success(HttpStatus.OK);
     }
+
+
 }

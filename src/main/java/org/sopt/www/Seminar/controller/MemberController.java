@@ -2,6 +2,7 @@ package org.sopt.www.Seminar.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.sopt.www.Seminar.dto.request.MemberCreateRequest;
+import org.sopt.www.Seminar.dto.request.MemberUpdateRequest;
 import org.sopt.www.Seminar.dto.response.MemberGetResponse;
 import org.sopt.www.Seminar.service.MemberService;
 import org.springframework.http.MediaType;
@@ -37,5 +38,16 @@ public class MemberController {
     public ResponseEntity<Void> createMember(@RequestBody MemberCreateRequest request) {
         URI location = URI.create("api/member" + memberService.create(request)) ;//만약 멤버 아이디가 2라면 location은 숫자 2
         return ResponseEntity.created(location).build();//location이 헤더로 날라감.
+    }
+    @PatchMapping("/{memberId}")
+    public ResponseEntity<Void> updateMemberSopt(@PathVariable Long memberId, @RequestBody MemberUpdateRequest memberUpdateRequest) {
+        memberService.updateSopt(memberId, memberUpdateRequest);
+        return ResponseEntity.ok().build();
+    }
+
+    @DeleteMapping("/{memberId}")
+    public ResponseEntity<Void> deleteMember(@PathVariable Long memberId) {
+        memberService.deleteById(memberId);
+        return ResponseEntity.ok().build();
     }
 }

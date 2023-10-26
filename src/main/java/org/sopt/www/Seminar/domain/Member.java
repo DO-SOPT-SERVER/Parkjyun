@@ -5,6 +5,7 @@ import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.sopt.www.Seminar.dto.request.MemberUpdateRequest;
 
 @Entity
 @Getter
@@ -29,5 +30,10 @@ public class Member {
         this.nickname = nickname;
         this.age = age;
         this.sopt = sopt;
+    }
+
+    public void updateSopt(MemberUpdateRequest memberUpdateRequest) {
+        sopt.changeGeneration(memberUpdateRequest.generation());
+        sopt.changePart(memberUpdateRequest.part());
     }
 }

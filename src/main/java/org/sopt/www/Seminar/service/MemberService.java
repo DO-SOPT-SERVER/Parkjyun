@@ -4,10 +4,12 @@ import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.sopt.www.Seminar.domain.Member;
 import org.sopt.www.Seminar.dto.request.MemberCreateRequest;
+import org.sopt.www.Seminar.dto.request.MemberUpdateRequest;
 import org.sopt.www.Seminar.dto.response.MemberGetResponse;
 import org.sopt.www.Seminar.repository.MemberJpaRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -18,14 +20,14 @@ import java.util.stream.Collectors;
 public class MemberService {
     private final MemberJpaRepository memberJpaRepository;
     
-    public MemberGetResponse getByIdV1(Long memberId) {//무지성 get은 좋은 방법이 아니다
-        Member member = memberJpaRepository.findById(memberId).get();//만약 memberid에 해당하는 멤버가 없어도 무지성으로 땡겨와라 -> nullpointer exception발생할 수도
+    public MemberGetResponse getByIdV1(Long memberId) {//v1비추
+        Member member = memberJpaRepository.findById(memberId).get();//optional.get()은-> nullpointer exception발생할 수도
         MemberGetResponse response = MemberGetResponse.of(member);
         return response;
     }
 
     public MemberGetResponse getByIdV2(Long memberId) {
-//        Member member = memberJpaRepository.findById(memberId)//findbyid의 returntype은 optional-> 존재할수도 존재하지 않을수도 -> 만약존재하지 않으면 null이 반환됨
+//        Member member = memberJpaRepository.findById(memberId)//findbyid의 returntype은 optional-> null일수도
 //                .orElseThrow( () -> new EntityNotFoundException("해당하는 회원이 없습니다."));//만약 조회가 안된다면 예외를 던져라
         return MemberGetResponse.of(memberJpaRepository.findByIdOrThrow(memberId));
     }
@@ -54,5 +56,17 @@ public class MemberService {
                 .sopt(request.soptInfo())
                 .build();
         return memberJpaRepository.save(member).getId().toString();//디비에 저장하고 저장한놈 아이디 갖고와서 문자로 갖고와서 URI로 만들어주기
+    }
+
+    @Transactional
+    public void deleteById(Long memberId) {
+        memberJpaRepository.deleteById(memberId);
+    }
+
+    @Transactional
+    public void updateSopt(Long memberId, MemberUpdateRequest memberUpdateRequest) {
+        Member member = memberJpaRepository.findByIdOrThrow(memberId);
+        member.updateSopt(memberUpdateRequest);
+
     }
 }
