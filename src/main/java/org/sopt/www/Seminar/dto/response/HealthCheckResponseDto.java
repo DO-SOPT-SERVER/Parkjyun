@@ -13,8 +13,8 @@ public class HealthCheckResponseDto {
     String status;
     boolean success;
 
-    public static HealthCheckResponseDto success(int code, String status) {
-        return new HealthCheckResponseDto(code, status, true);
+    public static HealthCheckResponseDto success(HttpStatus status) {
+        return new HealthCheckResponseDto(status.value(), status.name(), true);
     }
 
 }
