@@ -4,6 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
+//@EnableJpaAuditing//추상클래스를 사용하겠다
 public class SeminarApplication {
 
 	public static void main(String[] args) {

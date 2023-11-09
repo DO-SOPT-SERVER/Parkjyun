@@ -1,5 +1,7 @@
 spring:
-
+  config:
+    activate:
+      on-profile: local
   datasource:
     driver-class-name: org.h2.Driver
     url: jdbc:h2:tcp://localhost/~/sopt
@@ -7,6 +9,7 @@ spring:
     password:
 
   jpa:
+    defer-datasource-initialization: true
     show-sql: true
     hibernate:
       ddl-auto: create
@@ -14,3 +17,6 @@ spring:
       hibernate:
         format_sql: true
         show_sql: true
+  sql:
+    init:
+      mode: always

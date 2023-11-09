@@ -5,7 +5,6 @@ import org.sopt.www.Seminar.domain.Member;
 import org.sopt.www.Seminar.domain.Post;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import java.util.Collection;
 import java.util.List;
 
 public interface PostJpaRepository extends JpaRepository<Post, Long> {

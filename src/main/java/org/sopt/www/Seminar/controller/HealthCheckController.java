@@ -29,7 +29,7 @@ public class HealthCheckController {
     }
 
     @GetMapping("/v3")
-    public String healthCheckV3() {//집가서 sample package지우기
+    public String healthCheckV3() {
         Person person = Person.builder()//어떤 파라미터에 어떤 값이 들어갔는지 직관적으로 확인 가능 파라미터의 종류가 많을 떄 활용//생성자의 매개변수 중 일부만을 사용해도 됨.
                 .lastName("박")
                 .firstName("재연")
