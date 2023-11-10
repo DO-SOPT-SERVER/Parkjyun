@@ -2,6 +2,7 @@ package org.sopt.www.Seminar.service;
 
 import lombok.RequiredArgsConstructor;
 import org.sopt.www.Seminar.domain.Category;
+import org.sopt.www.Seminar.domain.CategoryId;
 import org.sopt.www.Seminar.domain.Member;
 import org.sopt.www.Seminar.domain.Post;
 import org.sopt.www.Seminar.dto.post.PostCreateRequest;
@@ -26,8 +27,9 @@ public class PostService {
     @Transactional//셍성이니깐 readonlt = true 영향을 안 받도록 @Transactional 생성
     public String create(PostCreateRequest request, Long memberId) {
        Member member = memberJpaRepository.findByIdOrThrow(memberId);
+       CategoryId categoryId = new CategoryId(request.categoryId());
        Post post = postJpaRepository.save(
-                        Post.builder()
+                        Post.builder().categoryId(categoryId)
                        .title(request.title())
                        .content(request.content())
                        .member(member)

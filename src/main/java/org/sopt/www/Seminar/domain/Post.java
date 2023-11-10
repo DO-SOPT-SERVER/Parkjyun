@@ -33,9 +33,10 @@ public class Post extends BaseTimeEntity {//원래는 snakecase로 바뀌어서 
     }
 
     @Builder
-    public Post(String title, String content, Member member) {
+    public Post(String title, String content, Member member, CategoryId categoryId) {
         this.title = title;
         this.content = content;
         this.member = member;
+        this.categoryId = categoryId;
     }
 }
