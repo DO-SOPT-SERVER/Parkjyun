@@ -7,7 +7,7 @@ public record PostGetResponse(
         Long id,
         String title,
         String content,
-        String Content
+        String category
 ) {
     public static PostGetResponse of(Post post, Category category) {
         return new PostGetResponse(
