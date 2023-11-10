@@ -1,8 +1,8 @@
 package org.sopt.www.Seminar.controller;
 
 
-import org.sopt.www.Seminar.dto.response.HealthCheckResponse;
-import org.sopt.www.Seminar.dto.response.HealthCheckResponseDto;
+import org.sopt.www.Seminar.dto.health.HealthCheckResponse;
+import org.sopt.www.Seminar.dto.health.HealthCheckResponseDto;
 import org.sopt.www.Seminar.sample.Person;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

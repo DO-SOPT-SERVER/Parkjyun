@@ -1,4 +1,4 @@
-package org.sopt.www.Seminar.dto.request.post;
+package org.sopt.www.Seminar.dto.post;
 
 import org.sopt.www.Seminar.domain.Category;
 import org.sopt.www.Seminar.domain.Post;

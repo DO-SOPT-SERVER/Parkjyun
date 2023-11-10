@@ -1,9 +1,9 @@
 package org.sopt.www.Seminar.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.sopt.www.Seminar.dto.request.member.MemberCreateRequest;
-import org.sopt.www.Seminar.dto.request.member.MemberUpdateRequest;
-import org.sopt.www.Seminar.dto.response.MemberGetResponse;
+import org.sopt.www.Seminar.dto.member.MemberCreateRequest;
+import org.sopt.www.Seminar.dto.member.MemberGetResponse;
+import org.sopt.www.Seminar.dto.member.MemberUpdateRequest;
 import org.sopt.www.Seminar.service.MemberService;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;

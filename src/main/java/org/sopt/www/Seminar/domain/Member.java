@@ -5,7 +5,7 @@ import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.sopt.www.Seminar.dto.request.member.MemberUpdateRequest;
+import org.sopt.www.Seminar.dto.member.MemberUpdateRequest;
 
 import java.util.ArrayList;
 import java.util.List;

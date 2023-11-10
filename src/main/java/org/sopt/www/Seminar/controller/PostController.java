@@ -1,9 +1,9 @@
 package org.sopt.www.Seminar.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.sopt.www.Seminar.dto.request.post.PostCreateRequest;
-import org.sopt.www.Seminar.dto.request.post.PostGetResponse;
-import org.sopt.www.Seminar.dto.request.post.PostUpdateRequest;
+import org.sopt.www.Seminar.dto.post.PostCreateRequest;
+import org.sopt.www.Seminar.dto.post.PostGetResponse;
+import org.sopt.www.Seminar.dto.post.PostUpdateRequest;
 import org.sopt.www.Seminar.service.PostService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

@@ -1,4 +1,4 @@
-package org.sopt.www.Seminar.dto.request.member;
+package org.sopt.www.Seminar.dto.member;
 
 import org.sopt.www.Seminar.domain.Member;
 import org.sopt.www.Seminar.domain.Sopt;

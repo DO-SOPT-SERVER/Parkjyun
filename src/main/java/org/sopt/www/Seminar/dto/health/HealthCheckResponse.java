@@ -1,4 +1,4 @@
-package org.sopt.www.Seminar.dto.response;
+package org.sopt.www.Seminar.dto.health;
 
 import lombok.Getter;
 
