@@ -1,7 +1,5 @@
-package org.sopt.www.Seminar.dto.response;
+package org.sopt.www.Seminar.dto.member;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
 import org.sopt.www.Seminar.domain.Member;
 import org.sopt.www.Seminar.domain.Sopt;
 

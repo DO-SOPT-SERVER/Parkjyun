@@ -3,13 +3,12 @@ package org.sopt.www.Seminar.service;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.sopt.www.Seminar.domain.Member;
-import org.sopt.www.Seminar.dto.request.MemberCreateRequest;
-import org.sopt.www.Seminar.dto.request.MemberUpdateRequest;
-import org.sopt.www.Seminar.dto.response.MemberGetResponse;
+import org.sopt.www.Seminar.dto.member.MemberCreateRequest;
+import org.sopt.www.Seminar.dto.member.MemberGetResponse;
+import org.sopt.www.Seminar.dto.member.MemberUpdateRequest;
 import org.sopt.www.Seminar.repository.MemberJpaRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -57,6 +56,7 @@ public class MemberService {
                 .build();
         return memberJpaRepository.save(member).getId().toString();//디비에 저장하고 저장한놈 아이디 갖고와서 문자로 갖고와서 URI로 만들어주기
     }
+
 
     @Transactional
     public void deleteById(Long memberId) {
