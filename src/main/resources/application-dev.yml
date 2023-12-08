@@ -23,3 +23,12 @@ spring:
   sql:
     init:
       mode: always
+
+aws-property:
+  access-key: AKIAV5DFWC62V2BBIA6G
+  secret-key: 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
+  aws-region: ap-northeast-2
+  s3-bucket-name: do-sopt-server-demo-bucketjp
+
+jwt:
+  secret: jangchungdongwangjokbalbossammalwang

@@ -1,5 +1,6 @@
 package org.sopt.www.Seminar.exception;
 
+import org.sopt.www.Seminar.common.ApiResponse;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
@@ -12,8 +13,9 @@ public class GlobalExceptionHandler {
         return ResponseEntity.badRequest().build();
     }
     @ExceptionHandler(BusinessException.class)
-    public ResponseEntity<Void> handleBusinessException(BusinessException e) {
-        return ResponseEntity.badRequest().build();
+    public ResponseEntity<ApiResponse> handleBusinessException(BusinessException e) {
+        return ResponseEntity.status(e.getHttpStatusCode())
+                .body(ApiResponse.error(e.getErrorMessage()));
     }
 
 
