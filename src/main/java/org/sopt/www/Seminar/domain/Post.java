@@ -22,6 +22,8 @@ public class Post extends BaseTimeEntity {//원래는 snakecase로 바뀌어서 
     //@Column(columnDefinition = "TEXT") 디비 컬럼의 자료형 바꿈(varchar -> text)
     private String content;
 
+    private String imageUrl;
+
     @ManyToOne(fetch = FetchType.LAZY)//한명의 멤버가 여러개의 post, post가 다 -> 외래키, 연관관계의 주인, 지연로딩, manytoone은 기본은 즉시로딩
     @JoinColumn(name = "member_id")//외레키 매핑
     private Member member;
@@ -38,5 +40,13 @@ public class Post extends BaseTimeEntity {//원래는 snakecase로 바뀌어서 
         this.content = content;
         this.member = member;
         this.categoryId = categoryId;
+    }
+
+    @Builder(builderMethodName = "builderWithImageUrl")
+    public Post(String title, String content, String imageUrl, Member member) {
+        this.title = title;
+        this.content = content;
+        this.imageUrl = imageUrl;
+        this.member = member;
     }
 }
